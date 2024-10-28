@@ -112,7 +112,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                it branch: 'main', url: 'https://github.com/Noni-arch/Nexus-Demo.git'
+               git branch: 'main', url: 'https://github.com/Noni-arch/Nexus-Demo.git'
             }
         }
         stage('Compile') {
@@ -133,7 +133,7 @@ pipeline {
         stage('Deploy Artifacts') {
             steps {
                 withMaven(globalMavenSettingsConfig: 'settings.xml', jdk: 'jdk17', maven: 'maven3', mavenSettingsConfig: '', traceability: true) {
-                    sh 'mvn deploy'
+                   sh 'mvn deploy'
                 }
             }
         }
